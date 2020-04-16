@@ -11,6 +11,7 @@
 | [![BCH compliance](https://bettercodehub.com/edge/badge/ETSISI-EMS/lab-3-mantenibilidad-giwm31-equipo18-manana?branch=master&token=1dca3091bf54ac488556046789db28bfbfe5dfc5)](https://bettercodehub.com/) | EQUIPO 18 MAÑANA |
 | [![BCH compliance](https://bettercodehub.com/edge/badge/ETSISI-EMS/lab-3-mantenibilidad-giwm31-equipo14-manana?branch=master&token=00a9eedd76e385319eb7ff51942be25d44e02f37)](https://bettercodehub.com/) | EQUIPO 14 MAÑANA |
 | [![BCH compliance](https://bettercodehub.com/edge/badge/ETSISI-EMS/lab-3-mantenibilidad-giwm31-equipo2-manana?branch=master&token=5fca1d6a8e862b52c4c96924a11ec43fc6112b67)](https://bettercodehub.com/) | EQUIPO 2 MAÑANA |
+| [![BCH compliance](https://bettercodehub.com/edge/badge/ETSISI-EMS/lab-3-mantenibilidad-giwt31-equipo06-tarde?branch=master&token=8e3eb7e6a4dbf7d5295f6b269349ac7aea6e8b73)](https://bettercodehub.com/) | EQUIPO 6 TARDE|
 
 The Better Code Hub scores are powered by the code quality industry benchmark of Software Improvement Group according to SIG/TÜViT Maintainability ISO 25010 model.
 
