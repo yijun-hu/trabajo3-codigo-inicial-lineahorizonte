@@ -102,27 +102,38 @@ public class LineaHorizonte {
         	
         	 Punto p1 = this.getPunto(0); // guardamos el primer elemento de s1
         	 Punto p2 = s2.getPunto(0); // guardamos el primer elemento de s2
-            int p1x=p1.getX(),p2x=p2.getX(),p1y=p1.getY(),p2y=p2.getY();//guardamos las coordenadas de p1,p2 en las variables
+            int p1x=p1.getX(),p2x=p2.getX(),p1y,p2y;//guardamos las coordenadas de p1,p2 en las variables
             
 
             if (p1x < p2x) // si X del s1 es menor que la X del s2
-            {           
-            	
-            	Punto paux = new Punto(p1x,Math.max(p1y, s2y));             
-            prev = paux.agregarPunto(prev, salida);
+            {     
+            p1y=p1.getY();
+            mxy= Math.max(p1y, s2y);
+            Punto paux = new Punto(p1x,mxy);  
+            if(mxy!=prev){
+              salida.addPunto(paux);
+            prev = mxy; 
+            }
             s1y = p1y;   // actualizamos la altura s1y
             this.borrarPunto(0); // en cualquier caso eliminamos el punto de s1 (tanto si se añade como si no es valido)
             }
             else if (p1x > p2x) // si X del s1 es mayor que la X del s2
             {
-            	// guardamos en paux esa X y hacemos que el maximo entre la Y del s2 y la altura previa del s1 sea la altura Y de paux
-            	Punto paux = new Punto(p2x, Math.max(p2y, s1y));           	 
-                prev = paux.agregarPunto(prev, salida);
-                s2y = p2y;   // actualizamos la altura s2y
-                s2.borrarPunto(0); // en cualquier caso eliminamos el punto de s2 (tanto si se añade como si no es valido)
-            }
+            	p2y=p2.getY();
+            	 mxy= Math.max(p2y, s1y);
+                 Punto paux = new Punto(p2x,mxy);  
+                 if(mxy!=prev) {
+                   salida.addPunto(paux);
+                 prev = mxy; 
+                 }
+                 s2y = p2y;    // actualizamos la altura s1y
+                 s2.borrarPunto(0); // en cualquier caso eliminamos el punto de s1 (tanto si se añade como si no es valido)
+                 }
+            
             else // si la X del s1 es igual a la X del s2
-            {
+            {   
+            	 p1y=p1.getY();
+            	 p2y=p2.getY();
                 if (p1y>p2y&&p1y!=prev) // guardaremos aquel punto que tenga la altura mas alta
                 {
                     salida.addPunto(p1);
@@ -166,3 +177,4 @@ public class LineaHorizonte {
 	}
     
     
+}
