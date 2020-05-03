@@ -106,13 +106,6 @@ public class Punto {
         }
         return prev;
 	}
-	
-    public boolean compA(Punto p2,int prev) {
-        return ((this.y> p2.y) && (this.y!=prev));
-   }
-    
-    public boolean compB(Punto p2,int prev) {
-        return ((this.y <= p2.y) && (p2.y!=prev));
-   }
+
     
 }

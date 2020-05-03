@@ -87,7 +87,11 @@ public class LineaHorizonte {
     {
     	// en estas variables guardaremos las alturas de los puntos anteriores, en s1y la del s1, en s2y la del s2 
     	// y en prev guardaremos la previa del segmento anterior introducido
-        int s1y=-1, s2y=-1, prev=-1;    
+        int s1y=-1, s2y=-1, prev=-1,mxy;    
+      // Inicializamos la variable paux
+        Punto p1 = new Punto();
+        Punto p2 = new Punto();
+        
         LineaHorizonte salida = new LineaHorizonte(); // LineaHorizonte de salida
         
            // punto donde guardaremos el primer punto del LineaHorizonte s2
@@ -97,18 +101,17 @@ public class LineaHorizonte {
         //Mientras tengamos elementos en s1 y en s2
         while (noEstanVacios(this,s2)) 
         {
-            Punto paux = new Punto();  // Inicializamos la variable paux
-            Punto p1 = this.getPunto(0); // guardamos el primer elemento de s1
-            Punto p2 = s2.getPunto(0); // guardamos el primer elemento de s2
-            int p1x=p1.getX(),p2x=p2.getX(),p1y=p1.getY(),p2y=p2.getY();
+        	  Punto paux = new Punto();
+             p1 = this.getPunto(0); // guardamos el primer elemento de s1
+             p2 = s2.getPunto(0); // guardamos el primer elemento de s2
+            int p1x=p1.getX(),p2x=p2.getX(),p1y=p1.getY(),p2y=p2.getY();//guardamos las coordenadas de p1,p2 en las variables
 
             if (p1x < p2x) // si X del s1 es menor que la X del s2
-            {
-            	// guardamos en paux esa X y hacemos que el maximo entre la Y del s1 y la altura previa del s2 sea la altura Y de paux
-                paux.setXY(p1x,Math.max(p1y, s2y));                
-                prev = paux.agregarPunto(prev, salida);
-                s1y = p1y;   // actualizamos la altura s1y
-                this.borrarPunto(0); // en cualquier caso eliminamos el punto de s1 (tanto si se añade como si no es valido)
+            {           
+            	paux.setXY(p1x,Math.max(p1y, s2y));                
+            prev = paux.agregarPunto(prev, salida);
+            s1y = p1y;   // actualizamos la altura s1y
+            this.borrarPunto(0); // en cualquier caso eliminamos el punto de s1 (tanto si se añade como si no es valido)
             }
             else if (p1x > p2x) // si X del s1 es mayor que la X del s2
             {
