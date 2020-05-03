@@ -29,31 +29,28 @@ public class CiudadTest extends TestCase{
 		try {			
 			
 			c = new Ciudad();
-			Edificio e1 = new Edificio(1,4,3);
+			Edificio e1 = new Edificio(new Punto(1,4),3);
 			c.addEdificio(e1);
-			Edificio e2 = new Edificio(2,7,9);
+			Edificio e2 = new Edificio(new Punto(2,7),9);
 			c.addEdificio(e2);
-			Edificio e3 = new Edificio(4,4,12);
+			Edificio e3 = new Edificio(new Punto(4,4),12);
 			c.addEdificio(e3);	
-			Edificio e4 = new Edificio(6,9,8);
+			Edificio e4 = new Edificio(new Punto(6,9),8);
 			c.addEdificio(e4);
-			Edificio e5 = new Edificio(11,6,13);
+			Edificio e5 = new Edificio(new Punto(11,6),13);
 			c.addEdificio(e5);
-			Edificio e6 = new Edificio(14,2,15);
+			Edificio e6 = new Edificio(new Punto(14,2),15);
 			c.addEdificio(e6);		
 
 			
-			linea = c.getLineaHorizonte();			
-			assertTrue(linea.getPunto(0).getX()== 1  && linea.getPunto(0).getY()==4);
-			assertTrue(linea.getPunto(1).getX()== 2  && linea.getPunto(1).getY()==7);
-			assertTrue(linea.getPunto(2).getX()== 6  && linea.getPunto(2).getY()==9);
-			assertTrue(linea.getPunto(3).getX()== 8  && linea.getPunto(3).getY()==7);   
-			assertTrue(linea.getPunto(4).getX()== 9  && linea.getPunto(4).getY()==4);
-			assertTrue(linea.getPunto(5).getX()== 11 && linea.getPunto(5).getY()==6);
-			assertTrue(linea.getPunto(6).getX()== 13 && linea.getPunto(6).getY()==0);
-			assertTrue(linea.getPunto(7).getX()== 14  && linea.getPunto(7).getY()==2);
-			assertTrue(linea.getPunto(8).getX()== 15  && linea.getPunto(8).getY()==0);
+			linea = c.getLineaHorizonte();	
+			int x[]= {1,2,6,8,9,11,13,14,15};
+			int y[]= {4,7,9,7,4,6,0,2,0};
 			
+			for(int i=0;i<linea.size();i++) {
+			assertTrue(
+					linea.getPunto(i).getX()== x[i]  && linea.getPunto(i).getY()==y[i]);
+			}
 		} catch (Exception e) {			
 			fail("Test failed");
 		}
@@ -67,15 +64,18 @@ public class CiudadTest extends TestCase{
 		try {			
 			
 			c = new Ciudad();
-			Edificio e1 = new Edificio(3,5,6);
+			Edificio e1 = new Edificio(new Punto(3,5), 6);
 			c.addEdificio(e1);
-			Edificio e2 = new Edificio(4,3,9);
+			Edificio e2 = new Edificio(new Punto(4,3),9);
 			c.addEdificio(e2);
 			
-			linea = c.getLineaHorizonte();			
-			assertTrue(linea.getPunto(0).getX()== 3  && linea.getPunto(0).getY()==5);
-			assertTrue(linea.getPunto(1).getX()== 6  && linea.getPunto(1).getY()==3);
-			assertTrue(linea.getPunto(2).getX()== 9  && linea.getPunto(2).getY()==0);			
+			linea = c.getLineaHorizonte();		
+			int x[]= {3,6,9};
+			int y[]= {5,3,0};
+			for(int i=0;i<linea.size();i++) {
+				assertTrue(
+						linea.getPunto(i).getX()== x[i]  && linea.getPunto(i).getY()==y[i]);
+				}
 			
 		} catch (Exception e) {			
 			fail("Test failed");
