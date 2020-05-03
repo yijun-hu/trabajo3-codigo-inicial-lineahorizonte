@@ -89,10 +89,7 @@ public class LineaHorizonte {
     	// y en prev guardaremos la previa del segmento anterior introducido
         int s1y=-1, s2y=-1, prev=-1,mxy;    
       // Inicializamos la variable paux
-        
-        Punto p1 = new Punto();
-        Punto p2 = new Punto();
-        
+       
         LineaHorizonte salida = new LineaHorizonte(); // LineaHorizonte de salida
         
            // punto donde guardaremos el primer punto del LineaHorizonte s2
@@ -103,8 +100,8 @@ public class LineaHorizonte {
         while (noEstanVacios(this,s2)) 
         {
         	 Punto paux = new Punto();
-        	 p1 = this.getPunto(0); // guardamos el primer elemento de s1
-        	 p2 = s2.getPunto(0); // guardamos el primer elemento de s2
+        	 Punto p1 = this.getPunto(0); // guardamos el primer elemento de s1
+        	 Punto p2 = s2.getPunto(0); // guardamos el primer elemento de s2
             int p1x=p1.getX(),p2x=p2.getX(),p1y=p1.getY(),p2y=p2.getY();//guardamos las coordenadas de p1,p2 en las variables
             
 
