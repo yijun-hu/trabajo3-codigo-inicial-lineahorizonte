@@ -100,21 +100,22 @@ public class LineaHorizonte {
             Punto paux = new Punto();  // Inicializamos la variable paux
             Punto p1 = this.getPunto(0); // guardamos el primer elemento de s1
             Punto p2 = s2.getPunto(0); // guardamos el primer elemento de s2
+            int p1x=p1.getX(),p2x=p2.getX(),p1y=p1.getY(),p2y=p2.getY();
 
             if (p1.tieneMenorX(p2)) // si X del s1 es menor que la X del s2
             {
             	// guardamos en paux esa X y hacemos que el maximo entre la Y del s1 y la altura previa del s2 sea la altura Y de paux
-                paux.setXY(p1.getX(),Math.max(p1.getY(), s2y));                
+                paux.setXY(p1x,Math.max(p1y, s2y));                
                 prev = paux.agregarPunto(prev, salida);
-                s1y = p1.getY();   // actualizamos la altura s1y
+                s1y = p1y;   // actualizamos la altura s1y
                 this.borrarPunto(0); // en cualquier caso eliminamos el punto de s1 (tanto si se añade como si no es valido)
             }
             else if (p1.tieneMayorX(p2)) // si X del s1 es mayor que la X del s2
             {
             	// guardamos en paux esa X y hacemos que el maximo entre la Y del s2 y la altura previa del s1 sea la altura Y de paux
-                paux.setXY(p2.getX(), Math.max(p2.getY(), s1y));     
+                paux.setXY(p2x, Math.max(p2y, s1y));     
                 prev = paux.agregarPunto(prev, salida);
-                s2y = p2.getY();   // actualizamos la altura s2y
+                s2y = p2y;   // actualizamos la altura s2y
                 s2.borrarPunto(0); // en cualquier caso eliminamos el punto de s2 (tanto si se añade como si no es valido)
             }
             else // si la X del s1 es igual a la X del s2
@@ -122,15 +123,15 @@ public class LineaHorizonte {
                 if (p1.compA(p2,prev)) // guardaremos aquel punto que tenga la altura mas alta
                 {
                     salida.addPunto(p1);
-                    prev = p1.getY();
+                    prev = p1y;
                 }
                 if (p1.compB(p2,prev))
                 {
                     salida.addPunto(p2);
-                    prev = p2.getY();
+                    prev = p2y;
                 }
-                s1y = p1.getY();   // actualizamos la s1y e s2y
-                s2y = p2.getY();
+                s1y = p1y;   // actualizamos la s1y e s2y
+                s2y = p2y;
                 this.borrarPunto(0); // eliminamos el punto del s1 y del s2
                 s2.borrarPunto(0);
             }
