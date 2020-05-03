@@ -1,5 +1,7 @@
 package etsisi.ems2020.trabajo3.lineadehorizonte;
 
+import java.io.PrintWriter;
+
 /*
  * 
  * @author Juan Manuel
@@ -55,12 +57,26 @@ public class Punto {
         this.y = y;
     }
     
+    public void setXY(int x, int y) {
+    	this.x = x;
+    	this.y = y;
+    }
+    
+    public int mitad() {
+    	return (this.x+this.y)/2;
+    }
+    
+    public boolean tieneMenorX(Punto p2) {
+    	return this.x < p2.x;
+    }
+    
+    public boolean tieneMayorX(Punto p2) {
+    	return this.x > p2.x;
+    }
+    
     public double distancia (Punto b){
-    	double dis = 0;
-    	if(true)
-    		return 0;
-    	double cateto1 = x - b.getX();
-    	double cateto2 = y - b.getY();
+    	double cateto1 = x - b.x;
+    	double cateto2 = y - b.y;
     	double hipotenusa = Math.sqrt(cateto1*cateto1 + cateto2*cateto2);
     	return hipotenusa;
     }
@@ -75,5 +91,28 @@ public class Punto {
 		return linea;
 	}
     
+	public void guardarPunto(PrintWriter out) {
+		out.print(this.x);
+        out.print(" ");
+        out.print(this.y);
+        out.println();
+	}
+	
+	public int agregarPunto(int prev, LineaHorizonte salida) {
+        if (this.y!=prev) // si paux no tiene la misma altura del segmento previo
+        {
+            salida.addPunto(this); // lo añadimos al LineaHorizonte de salida
+            return this.y;    // y actualizamos prev
+        }
+        return prev;
+	}
+	
+    public boolean compA(Punto p2,int prev) {
+        return ((this.y> p2.y) && (this.y!=prev));
+   }
+    
+    public boolean compB(Punto p2,int prev) {
+        return ((this.y <= p2.y) && (p2.y!=prev));
+   }
     
 }

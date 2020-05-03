@@ -11,11 +11,11 @@ public class Edificio {
         this.xi = 0;
         this.y = 0;
     }    
-    public Edificio(int xi, int y, int xd)
+    public Edificio(Punto p, int xd)
     {
         this.xd = xd;
-        this.xi = xi;
-        this.y = y;
+        this.xi = p.getX();
+        this.y = p.getY();
     }    
     public int getXi() {
         return this.xi;
